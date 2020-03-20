@@ -1,0 +1,113 @@
+<MyGrid>:
+
+    ti_output: ti_output
+    ti_message: ti_message
+    btn_bi: btn_bi
+    btn_tri: btn_tri
+    btn_qual: btn_qual
+    btn_person: btn_person
+    btn_group: btn_group
+    btn_org: btn_org
+    btn_geo: btn_geo
+    btn_product: btn_product
+    btn_event: btn_event
+
+    GridLayout:
+        cols:1
+        size: root.width - 20, root.height - 20
+        pos: 10, 10
+
+        Label:
+            text: "Top 40 Playlist"
+            font_size: 36
+            size_hint_y: 1
+
+        GridLayout:
+            cols: 2
+            size_hint_y: 5
+
+            GridLayout:
+                cols: 1
+                size_hint_x: 2.5
+
+                GridLayout:
+                    cols: 2
+                    size_hint_y: 1
+
+                    TextInput:
+                        id: ti_message
+                        text: "Click on the LOAD FILE button."
+                        size_hint_x: 4
+
+                    PathButton:
+                        text: "LOAD FILE"
+                        size_hint_x: 1
+                        on_press: root.load_file(self.get_path())
+
+                GridLayout:
+                    cols: 1
+                    size_hint_y: 5
+
+                    TextInput:
+                        id: ti_output
+                        multiline: True
+                        text: ""
+
+
+            GridLayout:
+                cols:1
+
+                GridLayout:
+                    cols:3
+
+                    Button:
+                        id: btn_bi
+                        text: "2"
+                        on_press: root.get_bigrams()
+
+                    Button:
+                        id: btn_tri
+                        text: "3"
+                        on_press: root.get_trigrams()
+
+                    Button:
+                        id: btn_qual
+                        text: "4"
+                        on_press: root.get_qualgrams()
+
+                GridLayout:
+                    cols: 2
+
+                    Button:
+                        id: btn_person
+                        text: "Person"
+                        on_press: root.ner_person()
+
+                    Button:
+                        id: btn_group
+                        text: "Group"
+                        on_press: root.ner_group()
+
+                    Button:
+                        id: btn_org
+                        text: "Org"
+                        on_press: root.ner_org()
+
+                    Button:
+                        id: btn_geo
+                        text: "Geo"
+                        on_press: root.ner_geo()
+
+                    Button:
+                        id: btn_product
+                        text: "Product"
+                        on_press: root.ner_product()
+
+                    Button:
+                        id: btn_event
+                        text: "Event"
+                        on_press: root.ner_event()
+
+                Button:
+                    text:"CLOSE"
+                    on_press: root.btn_close()
